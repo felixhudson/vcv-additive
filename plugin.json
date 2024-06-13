@@ -1,0 +1,23 @@
+{
+  "slug": "Quarks-additive",
+  "name": "additive",
+  "version": "2.0.0",
+  "license": "Apache-2.0",
+  "brand": "Quarks",
+  "author": "Felixh",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "additive",
+      "name": "additive",
+      "description": "Change output voltage in set amounts",
+      "tags": ["seq"]
+    }
+  ]
+}
