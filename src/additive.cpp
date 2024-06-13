@@ -79,7 +79,7 @@ struct Additive : Module {
       }
       value = inputs[NEG5_INPUT].getVoltage();
       if (negfivest and value > 0.f) {
-        pitch = pitch - 1.f/12;
+        pitch = pitch - 5.f/12;
         notecount -= 5;
         negfivest = false;
       }
