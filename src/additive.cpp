@@ -7,7 +7,7 @@ struct Additive : Module {
 	};
 	enum InputId {
 		POS1_INPUT,
-		PATH120_INPUT,
+		POS5_INPUT,
 		CLKIN_INPUT,
 		NEG1_INPUT,
 		NEG5_INPUT,
@@ -24,7 +24,7 @@ struct Additive : Module {
 	Additive() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 		configInput(POS1_INPUT, "");
-		configInput(PATH120_INPUT, "");
+		configInput(POS5_INPUT, "");
 		configInput(CLKIN_INPUT, "");
 		configOutput(VOCT_OUTPUT, "");
 	}
@@ -64,7 +64,7 @@ struct Additive : Module {
         notecount += 1;
         onest = false;
       }
-      value = inputs[PATH120_INPUT].getVoltage();
+      value = inputs[POS5_INPUT].getVoltage();
       if (fivest and value > 0.f) {
         /* DEBUG("+5 %f", value); */
         pitch = pitch + 5.f/12;
@@ -125,11 +125,11 @@ struct AdditiveWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 29.168)), module, Additive::POS1_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 39.267)), module, Additive::PATH120_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 69.25)), module, Additive::CLKIN_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20.598, 48.819)), module, Additive::NEG1_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.25, 29.168)), module, Additive::POS1_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(17.75, 29.168)), module, Additive::NEG1_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 39.267)), module, Additive::POS5_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20.598, 58.932)), module, Additive::NEG5_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 69.25)), module, Additive::CLKIN_INPUT));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.598, 18.065)), module, Additive::VOCT_OUTPUT));
 	}
