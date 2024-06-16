@@ -6,7 +6,7 @@ struct Additive : Module {
 		PARAMS_LEN
 	};
 	enum InputId {
-		PATH118_INPUT,
+		POS1_INPUT,
 		PATH120_INPUT,
 		CLKIN_INPUT,
 		NEG1_INPUT,
@@ -14,7 +14,7 @@ struct Additive : Module {
 		INPUTS_LEN
 	};
 	enum OutputId {
-		PATH116_OUTPUT,
+		VOCT_OUTPUT,
 		OUTPUTS_LEN
 	};
 	enum LightId {
@@ -23,7 +23,7 @@ struct Additive : Module {
 
 	Additive() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
-		configInput(PATH118_INPUT, "");
+		configInput(POS1_INPUT, "");
 		configInput(PATH120_INPUT, "");
 		configInput(CLKIN_INPUT, "");
 		configOutput(PATH116_OUTPUT, "");
@@ -46,7 +46,7 @@ struct Additive : Module {
 	void process(const ProcessArgs& args) override {
 
     float clock_value = inputs[CLKIN_INPUT].getVoltage();
-    value = inputs[PATH118_INPUT].getVoltage();
+    value = inputs[POS1_INPUT].getVoltage();
     /* if (value != debug){ */
       /* debug = value; */
       /* DEBUG("outside +1 %f", value); */
@@ -57,7 +57,7 @@ struct Additive : Module {
       clock = clock_value;
       // do work
       
-      value = inputs[PATH118_INPUT].getVoltage();
+      value = inputs[POS1_INPUT].getVoltage();
       if (onest and value > 0.f) {
         /* DEBUG("+1 %f", value); */
         pitch = pitch + 1.f/12;
@@ -108,7 +108,7 @@ struct Additive : Module {
       fivest = true;
       negonest = true;
       negfivest = true;
-      debug = true;
+      //debug = true;
     }
 
 	}
@@ -125,13 +125,13 @@ struct AdditiveWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 29.168)), module, Additive::PATH118_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 29.168)), module, Additive::POS1_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 39.267)), module, Additive::PATH120_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 69.25)), module, Additive::CLKIN_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20.598, 48.819)), module, Additive::NEG1_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20.598, 58.932)), module, Additive::NEG5_INPUT));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.598, 18.065)), module, Additive::PATH116_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.598, 18.065)), module, Additive::VOCT_OUTPUT));
 	}
 };
 
