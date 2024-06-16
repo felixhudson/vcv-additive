@@ -26,7 +26,7 @@ struct Additive : Module {
 		configInput(POS1_INPUT, "");
 		configInput(PATH120_INPUT, "");
 		configInput(CLKIN_INPUT, "");
-		configOutput(PATH116_OUTPUT, "");
+		configOutput(VOCT_OUTPUT, "");
 	}
   float pitch =1.f;
   float clock = 0.f;
@@ -97,7 +97,7 @@ struct Additive : Module {
       if (pitch < bottom) {
         pitch = pitch + (top - bottom);
       }
-      outputs[PATH116_OUTPUT].setVoltage(pitch);
+      outputs[VOCT_OUTPUT].setVoltage(pitch);
       
     } 
     if ( clock_value < 0.5 ){
