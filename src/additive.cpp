@@ -129,9 +129,9 @@ struct AdditiveWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(17.75, 29.168)), module, Additive::NEG1_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.25, 39.267)), module, Additive::POS5_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(17.75, 39.267)), module, Additive::NEG5_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.598, 18.065)), module, Additive::CLKIN_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12.5, 18.065)), module, Additive::CLKIN_INPUT));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.598, 69.25)), module, Additive::VOCT_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(12.5, 72.25)), module, Additive::VOCT_OUTPUT));
 	}
 };
 
